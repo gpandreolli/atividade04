@@ -4,8 +4,8 @@ public final class Passeio extends Veiculo implements Calcular{
 
     private int qtdePassageiros;
 
-    public Passeio(String placa, String marca, String modelo, float velocMax, int qtdePassageiros) {
-        super(placa, marca, modelo, velocMax);
+    public Passeio(String placa, String marca, String modelo, float velocMax, int qtdePassageiros, String cor, int qtdeRodas) {
+        super(placa, marca, modelo, velocMax,cor,qtdeRodas);
         this.qtdePassageiros = qtdePassageiros;
     }
 
@@ -32,7 +32,6 @@ public final class Passeio extends Veiculo implements Calcular{
     @Override
     public int calcular() {
 
-
-        return 0;
+        return getPlaca().length() + getCor().length() + getMarca().length() + getModelo().length();
     }
 }

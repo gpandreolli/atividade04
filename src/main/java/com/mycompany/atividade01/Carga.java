@@ -1,13 +1,13 @@
 package com.mycompany.atividade01;
 
-public final class Carga extends Veiculo{
+public final class Carga extends Veiculo implements Calcular{
 
     private int cargaMax;
     private int tara;
 
 
-    public Carga(String placa, String marca, String modelo, float velocMax, int cargaMax, int tara) {
-        super(placa, marca, modelo, velocMax);
+    public Carga(String placa, String marca, String modelo, float velocMax, String cor, int qtdeRodas, int cargaMax, int tara) {
+        super(placa, marca, modelo, velocMax, cor, qtdeRodas);
         this.cargaMax = cargaMax;
         this.tara = tara;
     }
@@ -38,5 +38,10 @@ public final class Carga extends Veiculo{
         velocMax = velocMax *100000;
 
         return velocMax;
+    }
+
+    @Override
+    public int calcular() {
+        return (int) (getTara() + getCargaMax() + getVelocMax() + getQtdeRodas() + getMotor().getPotencia() + getMotor().getQtdPist());
     }
 }
