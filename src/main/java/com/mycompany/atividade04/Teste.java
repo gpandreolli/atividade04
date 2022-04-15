@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.atividade01;
+package com.mycompany.atividade04;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -27,48 +27,38 @@ public class Teste {
                     if (listaVeiculoPasseio.size() < 5){
                         cadastrarVeiculoPasseio(listaVeiculoPasseio);
                         break;
-
                     }else{
                         System.out.printf("Você atingiu o limite máximo de veiculos cadastrados");
                         break;
-
                     }
                 case 2:
                     if (listaVeiculoCarga.size() < 5){
                         cadastrarVeiculoCarga(listaVeiculoCarga);
                         break;
-
                     }else{
                         System.out.printf("Você atingiu o limite máximo de veiculos cadastrados");
                         break;
-
                     }
                 case 3:
                     imprimeListaVeiculosPasseio(listaVeiculoPasseio);
                     break;
-
                 case 4:
                     imprimeListaVeiculosCarga(listaVeiculoCarga);
                     break;
-
                 case 5:
                     String placaPasseio = capturaPlaca();
                     imprimeVeiculoPasseioPorPlaca(listaVeiculoPasseio,placaPasseio);
                     break;
-
                 case 6:
                     String placaCarga = capturaPlaca();
                     imprimeVeiculoCargaPorPlaca(listaVeiculoCarga,placaCarga);
                     break;
-
+                case 7:
+                    System.exit(0);
+                default:
+                    System.out.println("Opção invalida, digite novamente\n");
             }
-            if (retornoMenuInicial < 1 || retornoMenuInicial> 7 ){
-                System.out.println("Opção invalida, digite novamente\n");
-            }
-
         }while (retornoMenuInicial !=7);
-
-
     }
 
     public static int chamarMenuInicial() {
@@ -85,7 +75,6 @@ public class Teste {
     }
 
     public static Carga criarVeiculoCarga(String[] dadosVeiculo){
-
         Carga veiculoCarga = new Carga();
         veiculoCarga.setMarca(dadosVeiculo[0]);
         veiculoCarga.setModelo(dadosVeiculo[1]);
@@ -101,18 +90,16 @@ public class Teste {
     }
 
     public static ArrayList<Carga> cadastrarVeiculoCarga(ArrayList<Carga> listaVeiculos){
-
         String[] dadosVeiculos;
         do{
             dadosVeiculos = menuCadastro("Carga");
             listaVeiculos.add( criarVeiculoCarga(dadosVeiculos));
-        }while (listaVeiculos.size() < 5 & dadosVeiculos[9].equalsIgnoreCase("1"));
+        }while (listaVeiculos.size() < 5 || dadosVeiculos[9].equalsIgnoreCase("1"));
 
         return listaVeiculos;
     }
 
     public static Passeio criarVeicuPasseio(String[] dadosVeiculo){
-
         Passeio veiculoPasseio = new Passeio();
         veiculoPasseio.setMarca(dadosVeiculo[0]);
         veiculoPasseio.setModelo(dadosVeiculo[1]);
@@ -127,12 +114,11 @@ public class Teste {
     }
 
     public static ArrayList<Passeio> cadastrarVeiculoPasseio(ArrayList<Passeio> listaVeiculos){
-
         String[] dadosVeiculos;
         do{
             dadosVeiculos = menuCadastro("Passeio");
             listaVeiculos.add( criarVeicuPasseio(dadosVeiculos));
-        }while (listaVeiculos.size() < 5 && dadosVeiculos[9].equalsIgnoreCase("1"));
+        }while (listaVeiculos.size() < 5 || dadosVeiculos[9].equalsIgnoreCase("1"));
 
         return listaVeiculos;
     }
@@ -194,8 +180,6 @@ public class Teste {
 
 
     private static void imprimeListaVeiculosPasseio(ArrayList<Passeio> listaVeiculoPasseio) {
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
         int i =  1;
         if (listaVeiculoPasseio.isEmpty()){
             System.out.printf("Não há veiculos de Passeio para serem mostrados \n");
@@ -233,8 +217,6 @@ public class Teste {
     }
 
     public static void imprimeVeiculoPasseioPorPlaca(ArrayList<Passeio> listaVeiculoPasseio,String placa){
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
         int i =  1;
         int j = 0;
         if (listaVeiculoPasseio.isEmpty()){
@@ -255,8 +237,6 @@ public class Teste {
     }
 
     public static void imprimeVeiculoCargaPorPlaca(ArrayList<Carga> listaVeiculoCarga,String placa){
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
         int i =  1;
         int j = 0;
         if (listaVeiculoCarga.isEmpty()){

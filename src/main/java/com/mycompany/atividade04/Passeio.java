@@ -1,4 +1,4 @@
-package com.mycompany.atividade01;
+package com.mycompany.atividade04;
 
 public final class Passeio extends Veiculo implements Calcular{
 
