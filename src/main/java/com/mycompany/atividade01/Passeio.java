@@ -1,6 +1,6 @@
 package com.mycompany.atividade01;
 
-public final class Passeio extends Veiculo{
+public final class Passeio extends Veiculo implements Calcular{
 
     private int qtdePassageiros;
 
@@ -13,7 +13,9 @@ public final class Passeio extends Veiculo{
         this.qtdePassageiros =0;
     }
 
-
+    public int getQtdePassageiros() {
+        return qtdePassageiros;
+    }
 
     public void setQtdePassageiros(int qtdePassageiros) {
         this.qtdePassageiros = qtdePassageiros;
@@ -25,5 +27,12 @@ public final class Passeio extends Veiculo{
         velocMax = velocMax * 1000;
 
         return velocMax;
+    }
+
+    @Override
+    public int calcular() {
+
+
+        return 0;
     }
 }
